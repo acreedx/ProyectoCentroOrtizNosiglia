@@ -1,0 +1,57 @@
+{
+  "id": "101",
+  "resourceType": "Procedure",
+  "instantiatesCanonical": [""],
+  "instantiatesUri": ["<uri>"],
+  "basedOn": [{}],
+  "partOf": [{}],
+  "status": "preparation",
+  "statusReason": {},
+  "category": [{}],
+  "code": {},
+  "subject": {
+    "reference": "Nombre del paciente"
+  },
+  "focus": {},
+  "encounter": {},
+  "occurrenceDateTime": "1997-09-08",
+  "occurrencePeriod": {},
+  "occurrenceString": "5 años",
+  "occurrenceAge": {},
+  "occurrenceRange": {},
+  "occurrenceTiming": {},
+  "recorded": "1997-09-08",
+  "recorder": {},
+  "reportedBoolean": false,
+  "reportedReference": {},
+  "performer": [
+    {
+      "function": {},
+      "actor": {},
+      "onBehalfOf": {},
+      "period": {}
+    }
+  ],
+  "location": {},
+  "reason": [{}],
+  "bodySite": [{}],
+  "outcome": {},
+  "report": [{}],
+  "complication": [{}],
+  "followUp": [{}],
+  "note": [{}],
+  "focalDevice": [
+    {
+      "action": {},
+      "manipulated": {}
+    }
+  ],
+  "used": [
+    {
+      "concept": {
+        "text": "Paracetamol"
+      }
+    }
+  ],
+  "supportingInfo": [{}]
+}

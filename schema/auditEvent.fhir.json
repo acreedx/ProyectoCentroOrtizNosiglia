@@ -1,0 +1,64 @@
+{
+  "id": "101",
+  "resourceType": "AuditEvent",
+  "category": [{ "id": "101" }],
+  "code": { "id": "101" },
+  "action": "<code>",
+  "severity": "<code>",
+  "occurredPeriod": { "id": "101" },
+  "occurredDateTime": "1998-08-16",
+  "recorded": "1998-08-16 16:40",
+  "authorization": [{ "id": "101" }],
+  "basedOn": [{ "id": "101" }],
+  "patient": { "id": "101" },
+  "encounter": { "id": "101" },
+  "agent": [
+    {
+      "type": { "id": "101" },
+      "role": [{ "id": "101" }],
+      "who": { "id": "101" },
+      "requestor": true,
+      "location": { "id": "101" },
+      "policy": ["<uri>"],
+      "networkReference": { "id": "101" },
+      "networkUri": "<uri>",
+      "networkString": "<string>",
+      "authorization": [{ "id": "101" }]
+    }
+  ],
+  "source": {
+    "site": {},
+    "observer": {},
+    "type": [{}]
+  },
+  "entity": [
+    {
+      "what": {},
+      "role": {
+        "extension": [
+          { "valueString": "Administrador" },
+          { "valueString": "Secretario" }
+        ]
+      },
+      "securityLabel": [{}],
+      "query": "<base64Binary>",
+      "detail": [
+        {
+          "type": {},
+          "valueQuantity": { "id": "101" },
+          "valueCodeableConcept": {},
+          "valueString": "<string>",
+          "valueBoolean": true,
+          "valueInteger": 1,
+          "valueRange": {},
+          "valueRatio": {},
+          "valueTime": "16:40",
+          "valueDateTime": "1998-08-16",
+          "valuePeriod": { "id": "101" },
+          "valueBase64Binary": "<base64Binary>"
+        }
+      ],
+      "agent": [{ "id": "101", "who": { "type": "movil" } }]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "id": "101",
+  "resourceType": "CarePlan",
+  "basedOn": [{}],
+  "replaces": [{}],
+  "partOf": [{ "id": "Si es un plan anterior a otro" }],
+  "status": "<code>",
+  "intent": "<code>",
+  "category": [{}],
+  "title": "<string>",
+  "description": "<string>",
+  "subject": { "id": "paciente 1" },
+  "encounter": { "id": "encuentro 1" },
+  "period": { "id": "101" },
+  "created": "1998-08-16",
+  "custodian": {
+    "id": "Id de la persona que creo el plan"
+  },
+  "contributor": [
+    {
+      "id": "Personas pagando con el plan"
+    }
+  ],
+  "careTeam": [{}],
+  "addresses": [{}],
+  "supportingInfo": [
+    {
+      "display": "Algun tipo de información adicional"
+    }
+  ],
+  "goal": [
+    {
+      "display": "El objetivo del tratamiento es lograr la curación de todos los dientes"
+    }
+  ],
+  "activity": [
+    {
+      "performedActivity": [
+        {
+          "id": "Id del evento 1"
+        },
+        {
+          "id": "Id del evento 2"
+        }
+      ],
+      "progress": [
+        {
+          "text": "Completado"
+        }
+      ],
+      "plannedActivityReference": {
+        "id": "Id del siguiente evento planeado"
+      }
+    }
+  ],
+  "note": [
+    {
+      "authorReference": { "id": "Doctor 101" },
+      "time": "16:40",
+      "text": "El paciente presenta un tipo de inflamación en la boca"
+    }
+  ]
+}

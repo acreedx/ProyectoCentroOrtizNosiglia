@@ -1,0 +1,37 @@
+{
+  "id": "101",
+  "resourceType": "Appointment",
+  "status": "<code>",
+  "cancellationReason": {},
+  "serviceCategory": [{}],
+  "serviceType": [{}],
+  "specialty": [{}],
+  "appointmentType": {},
+  "reason": [{}],
+  "priority": {},
+  "description": "<string>",
+  "replaces": [{}],
+  "supportingInformation": [{}],
+  "previousAppointment": {},
+  "originatingAppointment": {},
+  "start": "1997-09-08",
+  "end": "1997-09-08",
+  "minutesDuration": 1,
+  "requestedPeriod": [{}],
+  "slot": [{}],
+  "account": [{}],
+  "created": "1997-09-08",
+  "cancellationDate": "1997-09-08",
+  "note": [{}],
+  "patientInstruction": [{}],
+  "subject": {},
+  "participant": [
+    {
+      "type": [{}],
+      "period": {},
+      "actor": {},
+      "required": true,
+      "status": "<code>"
+    }
+  ]
+}

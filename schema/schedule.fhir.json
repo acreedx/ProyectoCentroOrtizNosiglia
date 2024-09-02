@@ -1,0 +1,17 @@
+{
+  "id": "101",
+  "resourceType": "Schedule",
+  "identifier": [{ "id": "101" }],
+  "active": true,
+  "serviceCategory": [{ "id": "New Service" }],
+  "serviceType": [{ "id": "Id Health Care" }],
+  "specialty": [{ "id": "Id Specialty" }],
+  "name": "<string>",
+  "actor": [{ "id": "Actor" }],
+  "planningHorizon": {
+    "id": "planning horizon",
+    "_start": { "extension": [{ "valueString": "Hora de inicio" }] },
+    "_end": { "extension": [{ "valueString": "Hora de inicio" }] }
+  },
+  "comment": "<markdown>"
+}

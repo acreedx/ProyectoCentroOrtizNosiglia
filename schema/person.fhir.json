@@ -1,0 +1,29 @@
+{
+  "id": "101",
+  "resourceType": "Person",
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "given": ["Sidhart"],
+      "family": "Ramesh"
+    }
+  ],
+  "telecom": [{}],
+  "gender": "male",
+  "birthDate": "1997-09-08",
+  "deceasedBoolean": false,
+  "deceasedDateTime": "1997-09-08",
+  "address": [{}],
+  "maritalStatus": {},
+  "photo": [{}],
+  "communication": [
+    {
+      "language": { "text": "Español" },
+      "preferred": true
+    }
+  ],
+  "managingOrganization": {
+    "id": "id de la organización"
+  }
+}

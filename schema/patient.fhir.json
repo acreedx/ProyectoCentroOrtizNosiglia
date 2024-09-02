@@ -1,0 +1,44 @@
+{
+  "id": "101",
+  "resourceType": "Patient",
+  "name": [
+    {
+      "use": "official",
+      "given": ["Sidhart"],
+      "family": "Ramesh"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1997-09-08",
+  "telecom": [
+    {
+      "value": "73744202",
+      "use": "mobile",
+      "system": "phone"
+    },
+    {
+      "system": "email",
+      "value": "tornadoalert@gmail.com"
+    }
+  ],
+  "photo": [
+    {
+      "_url": { "id": "https://localhost:3000" }
+    }
+  ],
+  "communication": [
+    {
+      "language": { "text": "Español" },
+      "preferred": true
+    }
+  ],
+  "address": [
+    {
+      "use": "home",
+      "line": ["231, Diamond Residency"],
+      "city": "Manipal",
+      "state": "Karnataka",
+      "postalCode": "0000"
+    }
+  ]
+}

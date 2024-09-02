@@ -1,0 +1,29 @@
+{
+  "id": "101",
+  "resourceType": "EncounterHistory",
+  "encounter": {},
+  "identifier": [
+    {
+      "id": "Prodecimiento 1"
+    }
+  ],
+  "status": "completado",
+  "class": {},
+  "type": [{}],
+  "serviceType": [{}],
+  "subject": {
+    "id": "101",
+    "reference": "Patient"
+  },
+  "subjectStatus": {},
+  "actualPeriod": {},
+  "plannedStartDate": "1998-08-16",
+  "plannedEndDate": "1998-08-16",
+  "length": {},
+  "location": [
+    {
+      "location": {},
+      "form": {}
+    }
+  ]
+}

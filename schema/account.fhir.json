@@ -1,0 +1,73 @@
+{
+  "id": "101",
+  "resourceType": "Account",
+  "status": "en curso",
+  "billingStatus": {
+    "text": "in debt"
+  },
+  "type": {
+    "text": ""
+  },
+  "name": "<string>",
+  "subject": [{}],
+  "servicePeriod": {},
+  "coverage": [
+    {
+      "coverage": {},
+      "priority": 1
+    }
+  ],
+  "owner": {},
+  "description": "<markdown>",
+  "guarantor": [
+    {
+      "party": {},
+      "onHold": true,
+      "period": {}
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "condition": {},
+      "dateOfDiagnosis": "1997-08-16",
+      "type": [{}],
+      "onAdmission": true,
+      "packageCode": [{}]
+    },
+    {
+      "sequence": 1,
+      "condition": {},
+      "dateOfDiagnosis": "1997-08-16",
+      "type": [{}],
+      "onAdmission": true,
+      "packageCode": [{}]
+    }
+  ],
+  "procedure": [
+    {
+      "sequence": 1,
+      "code": {},
+      "dateOfService": "1997-08-16",
+      "type": [{}],
+      "packageCode": [{}],
+      "device": [{}]
+    }
+  ],
+  "relatedAccount": [
+    {
+      "relationship": {},
+      "account": {}
+    }
+  ],
+  "currency": {},
+  "balance": [
+    {
+      "aggregate": {},
+      "term": {},
+      "estimate": true,
+      "amount": {}
+    }
+  ],
+  "calculatedAt": "1997-08-16 T16:20"
+}

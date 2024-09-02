@@ -1,0 +1,48 @@
+{
+  "id": "101",
+  "resourceType": "ImagingStudy",
+  "status": "<code>",
+  "modality": [{}],
+  "subject": { "id": "id persona" },
+  "encounter": {},
+  "started": "1998-08-26",
+  "basedOn": [{}],
+  "partOf": [{}],
+  "referrer": {},
+  "endpoint": [{}],
+  "numberOfSeries": "<unsignedInt>",
+  "numberOfInstances": "<unsignedInt>",
+  "procedure": [{}],
+  "location": {},
+  "reason": [{}],
+  "note": [{}],
+  "description": "<string>",
+  "series": [
+    {
+      "uid": "<id>",
+      "number": "<unsignedInt>",
+      "modality": {},
+      "description": "<string>",
+      "numberOfInstances": "<unsignedInt>",
+      "endpoint": [{}],
+      "bodySite": {},
+      "laterality": {},
+      "specimen": [{}],
+      "started": "<dateTime>",
+      "performer": [
+        {
+          "function": {},
+          "actor": {}
+        }
+      ],
+      "instance": [
+        {
+          "uid": "<id>",
+          "sopClass": {},
+          "number": "<unsignedInt>",
+          "title": "<string>"
+        }
+      ]
+    }
+  ]
+}
