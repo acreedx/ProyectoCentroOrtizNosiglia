@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 const personSchema = new Schema({
+  fotoDePerfil: { type: String, required: true },
   apellidoPaterno: { type: String, required: true },
   apellidoMaterno: { type: String, required: true },
   primerNombre: { type: String, required: true },
