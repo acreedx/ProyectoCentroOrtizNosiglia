@@ -7,6 +7,7 @@ const timeLog = (req, res, next) => {
   next();
 };
 router.use(timeLog);
+
 router.get("/", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   try {
@@ -16,6 +17,7 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 router.put("/:id", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
@@ -40,6 +42,7 @@ router.put("/:id", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 router.get("/restorepatient/:id", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
@@ -61,6 +64,7 @@ router.get("/restorepatient/:id", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 router.get("/deletepatient/:id", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
@@ -82,6 +86,7 @@ router.get("/deletepatient/:id", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 router.post("/", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
@@ -360,6 +365,7 @@ router.post("/", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
 router.get("/:id", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
@@ -376,6 +382,7 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
 router.options("/:id", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
