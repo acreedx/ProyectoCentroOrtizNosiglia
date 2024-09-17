@@ -1,6 +1,5 @@
 import User from "../models/user.js";
 import bcrypt from "bcrypt";
-import crypto from "node:crypto";
 
 export class UserRepository {
   static async create({ username, password, email }) {

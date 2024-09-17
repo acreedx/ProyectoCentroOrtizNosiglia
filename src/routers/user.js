@@ -3,10 +3,12 @@ import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 import { UserRepository } from "../repositories/userRepository.js";
+import cookieParser from "cookie-parser";
 const router = express.Router();
 dotenv.config();
 const key = process.env.SECRET_JWT_KEY.toString();
-const getUser = (req, res, next) => {
+
+router.use((req, res, next) => {
   const token = req.cookies.access_token;
   req.session = { user: null };
   try {
@@ -14,9 +16,7 @@ const getUser = (req, res, next) => {
     req.session.user = data;
   } catch {}
   next();
-};
-
-router.use(getUser);
+});
 
 router.get("/", async (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");

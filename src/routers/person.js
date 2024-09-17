@@ -1,6 +1,5 @@
 import express from "express";
 import Person from "../models/person.js";
-import { ObjectId } from "mongodb";
 import Odontograma from "../models/odontograma.js";
 const router = express.Router();
 const timeLog = (req, res, next) => {
