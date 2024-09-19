@@ -5,8 +5,8 @@ import cron from "node-cron";
 
 import dotenv from "dotenv";
 dotenv.config();
-const accountSid = process.env.accountSid.toString();
-const authToken = process.env.authToken.toString();
+const accountSid = "";
+const authToken = "";
 const router = express.Router();
 const { Twilio } = pkg;
 
