@@ -1,10 +1,8 @@
 import express from "express";
 import Appointment from "../models/appointment.js";
-import pkg from "twilio";
 import cron from "node-cron";
 
 const router = express.Router();
-const { Twilio } = pkg;
 
 const client = new Twilio(accountSid, authToken);
 const isTwoDaysBefore = (date) => {
