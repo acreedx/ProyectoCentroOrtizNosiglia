@@ -3,10 +3,6 @@ import Appointment from "../models/appointment.js";
 import pkg from "twilio";
 import cron from "node-cron";
 
-import dotenv from "dotenv";
-dotenv.config();
-const accountSid = "";
-const authToken = "";
 const router = express.Router();
 const { Twilio } = pkg;
 
