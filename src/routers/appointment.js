@@ -2,10 +2,14 @@ import express from "express";
 import Appointment from "../models/appointment.js";
 import pkg from "twilio";
 import cron from "node-cron";
+
+import dotenv from "dotenv";
+dotenv.config();
+const accountSid = process.env.accountSid.toString();
+const authToken = process.env.authToken.toString();
 const router = express.Router();
 const { Twilio } = pkg;
-const accountSid = "ACf8cfcff85381dbfa10745d54e429f3d4";
-const authToken = "2f6b01779786c8765fbe5e27c3c6c22a";
+
 const client = new Twilio(accountSid, authToken);
 const isTwoDaysBefore = (date) => {
   const now = new Date();
