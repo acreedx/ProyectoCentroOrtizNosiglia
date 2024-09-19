@@ -1,6 +1,7 @@
 import express from "express";
 import Person from "../models/person.js";
 import Odontograma from "../models/odontograma.js";
+import { PersonRepository } from "../repositories/personRepository.js";
 const router = express.Router();
 const timeLog = (req, res, next) => {
   next();
@@ -95,10 +96,10 @@ router.post("/", async (req, res) => {
   );
 
   try {
-    const nuevaPersona = new Person(req.body);
-    const personaGuardada = await nuevaPersona.save();
+    console.log(req.body);
+    const nuevaPersona = await PersonRepository.create(req.body);
     const odontogramaPersona = new Odontograma({
-      patientId: personaGuardada._id,
+      patientId: nuevaPersona._id,
       odontogramRows: [
         {
           msc: "ICSI",
@@ -359,7 +360,7 @@ router.post("/", async (req, res) => {
       ],
     });
     await odontogramaPersona.save();
-    res.status(200).json(personaGuardada);
+    res.status(200).json(nuevaPersona);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

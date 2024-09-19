@@ -6,6 +6,8 @@ const personSchema = new Schema({
   apellidoMaterno: { type: String, required: true },
   primerNombre: { type: String, required: true },
   segundoNombre: { type: String, required: true },
+  nombreUsuario: { type: String, required: true },
+  password: { type: String, required: true },
   fechaNacimiento: { type: String, required: true },
   lugarNacimiento: { type: String, required: true },
   sexo: { type: String, required: true },

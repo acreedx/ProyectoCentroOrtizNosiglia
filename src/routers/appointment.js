@@ -36,6 +36,7 @@ router.post("/", async (req, res) => {
     const citaGuardada = await nuevaCita.save();
     res.status(200).json(citaGuardada);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ message: error.message });
   }
 });
