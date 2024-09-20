@@ -6,7 +6,7 @@ import cron from "node-cron";
 const router = express.Router();
 const { Twilio } = pkg;
 const accountSid = "ACf8cfcff85381dbfa10745d54e429f3d4";
-const authToken = "2f6b01779786c8765fbe5e27c3c6c22a";
+const authToken = "ea1272ff1c4d650b683ffc743704e8e2";
 
 const client = new Twilio(accountSid, authToken);
 const isTwoDaysBefore = (date) => {
@@ -36,7 +36,7 @@ cron.schedule("0 8 * * *", async () => {
             cita.start
           )}.
           El pago de la cita es de 100bs. 
-          Puedes confirmar tu cita en http://localhost:3000/paginaweb/citas.`,
+          Puedes confirmar tu cita en http://localhost:3000/paginaweb/pages/citas.`,
         });
         console.log(cita.start);
         console.log(
