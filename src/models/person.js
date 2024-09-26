@@ -1,24 +1,36 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
-const personSchema = new Schema({
-  fotoDePerfil: { type: String, required: true },
-  apellidoPaterno: { type: String, required: true },
-  apellidoMaterno: { type: String, required: true },
-  primerNombre: { type: String, required: true },
-  segundoNombre: { type: String, required: true },
-  nombreUsuario: { type: String, required: true },
-  password: { type: String, required: true },
-  fechaNacimiento: { type: String, required: true },
-  lugarNacimiento: { type: String, required: true },
-  sexo: { type: String, required: true },
-  carnetIdentidad: { type: String, required: true },
-  direccionZona: { type: String, required: true },
-  telefono: { type: String, required: true },
-  celular: { type: String, required: true },
-  email: { type: String, required: true },
-  alergiaMedicamento: { type: String, required: true },
-  estado: { type: Boolean, default: true },
-});
+const personSchema = new Schema(
+  {
+    fotoDePerfil: { type: String, required: true },
+    apellidoPaterno: { type: String, required: true },
+    apellidoMaterno: { type: String, required: true },
+    primerNombre: { type: String, required: true },
+    segundoNombre: { type: String, required: true },
+    nombreUsuario: { type: String, required: true },
+    password: { type: String, required: true },
+    fechaNacimiento: { type: String, required: true },
+    lugarNacimiento: { type: String, required: true },
+    sexo: { type: String, required: true },
+    carnetIdentidad: { type: String, required: true },
+    direccionZona: { type: String, required: true },
+    telefono: { type: String, required: true },
+    celular: { type: String, required: true },
+    email: { type: String, required: true },
+    alergiaMedicamento: { type: String, required: true },
+    estado: { type: Boolean, default: true },
+    roles: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Rol",
+        required: true,
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
 /*
 const personSchema = new Schema({
   resourceType: { type: String, required: true },
