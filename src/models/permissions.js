@@ -8,6 +8,11 @@ const permissionSchema = new Schema(
       unique: true,
       trim: true,
     },
+    code: {
+      type: String,
+      required: true,
+      unique: true,
+    },
   },
   {
     timestamps: true,

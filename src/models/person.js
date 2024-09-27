@@ -55,12 +55,6 @@ const personSchema = new Schema({
       _url: { id: { type: String, required: true } },
     },
   ],
-  communication: [
-    {
-      language: { text: { type: String, required: true } },
-      preferred: { type: Boolean, required: true },
-    },
-  ],
   address: [
     {
       use: { type: String, required: true },
@@ -97,7 +91,6 @@ const personSchema = new Schema({
   },
 });
 */
-
 const Person = mongoose.model("Person", personSchema);
 
 export default Person;

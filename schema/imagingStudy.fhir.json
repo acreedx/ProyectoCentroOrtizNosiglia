@@ -44,5 +44,11 @@
         }
       ]
     }
+  ],
+  "imageURLs": [
+    {
+      "url": "string",
+      "title": "string"
+    }
   ]
 }
