@@ -1,0 +1,13 @@
+{
+  "patientId": "ObjectId",
+  "odontogramRows": [
+    {
+      "msc": "string",
+      "temp": "string",
+      "piezas": "string",
+      "fecha": "string",
+      "diagnostico": "string",
+      "tratamiento": "string"
+    }
+  ]
+}

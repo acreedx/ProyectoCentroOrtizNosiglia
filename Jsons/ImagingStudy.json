@@ -1,0 +1,53 @@
+{
+  "resourceType": "string",
+  "status": "string",
+  "subject": {
+    "reference": "string",
+    "display": "string"
+  },
+  "encounter": {
+    "reference": "string",
+    "display": "string"
+  },
+  "started": "string",
+  "modality": {
+    "coding": [
+      {
+        "system": "string",
+        "code": "string",
+        "display": "string"
+      }
+    ]
+  },
+  "reason": [
+    {
+      "coding": [
+        {
+          "system": "string",
+          "code": "string",
+          "display": "string"
+        }
+      ]
+    }
+  ],
+  "description": "string",
+  "series": [
+    {
+      "bodySite": {
+        "coding": [
+          {
+            "system": "string",
+            "code": "string",
+            "display": "string"
+          }
+        ]
+      },
+      "media": [
+        {
+          "reference": "string",
+          "display": "string"
+        }
+      ]
+    }
+  ]
+}

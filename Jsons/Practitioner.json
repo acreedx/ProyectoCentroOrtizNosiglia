@@ -1,0 +1,20 @@
+{
+  "resourceType": "string",
+  "qualification": {
+    "code": {
+      "coding": {
+        "system": "string",
+        "code": "number",
+        "display": "string"
+      }
+    }
+  },
+  "issuer": {
+    "reference": "string",
+    "display": "string"
+  },
+  "person": {
+    "reference": "string",
+    "display": "string"
+  }
+}

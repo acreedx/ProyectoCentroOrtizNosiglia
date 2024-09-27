@@ -1,0 +1,37 @@
+{
+  "resourceType": "string",
+  "status": "string",
+  "category": {
+    "coding": [
+      {
+        "system": "string",
+        "code": "string",
+        "display": "string"
+      }
+    ]
+  },
+  "title": "string",
+  "description": "string",
+  "subject": {
+    "reference": "string",
+    "display": "string"
+  },
+  "created": "string",
+  "custodian": {
+    "reference": "string",
+    "display": "string"
+  },
+  "activity": [
+    {
+      "performedActivity": [
+        {
+          "reference": "string"
+        }
+      ],
+      "plannedActivityReference": {
+        "reference": "string",
+        "display": "string"
+      }
+    }
+  ]
+}

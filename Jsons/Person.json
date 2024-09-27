@@ -1,0 +1,47 @@
+{
+  "resourceType": "string",
+  "active": true,
+  "name": {
+    "use": "string",
+    "given": ["string"],
+    "family": "string"
+  },
+  "gender": "string",
+  "birthDate": "string",
+  "telecom": [
+    {
+      "value": "string",
+      "use": "string",
+      "system": "string"
+    }
+  ],
+  "photo": {
+    "_url": {
+      "id": "string"
+    }
+  },
+  "address": {
+    "use": "string",
+    "line": ["string"],
+    "city": "string",
+    "state": "string",
+    "postalCode": "string"
+  },
+  "maritalStatus": {
+    "coding": [
+      {
+        "system": "string",
+        "code": "string",
+        "display": "string"
+      }
+    ]
+  },
+  "systemUser": {
+    "username": "string",
+    "password": "string",
+    "roles": ["string"],
+    "lastLogin": "string",
+    "passwordExpiration": "string",
+    "status": "string"
+  }
+}

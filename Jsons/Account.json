@@ -1,0 +1,36 @@
+{
+  "resourceType": "string",
+  "status": "string",
+  "billingStatus": {
+    "text": "string"
+  },
+  "subject": 0,
+  "encounters": [
+    {
+      "reference": "string",
+      "display": "string"
+    }
+  ],
+  "procedure": [
+    {
+      "sequence": 0,
+      "code": {
+        "coding": [
+          {
+            "system": "string",
+            "code": "string",
+            "display": "string"
+          }
+        ]
+      },
+      "dateOfService": "string"
+    }
+  ],
+  "balance": {
+    "amount": {
+      "value": 0,
+      "currency": "string"
+    }
+  },
+  "calculatedAt": "string"
+}

@@ -1,0 +1,12 @@
+{
+  "resourceType": "string",
+  "subject": {
+    "reference": "string"
+  },
+  "encounter": [
+    {
+      "reference": "string"
+    }
+  ],
+  "date": "string"
+}

@@ -1,0 +1,76 @@
+{
+  "resourceType": "string",
+  "status": "string",
+  "type": {
+    "coding": [
+      {
+        "system": "string",
+        "code": "string",
+        "display": "string"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "string",
+    "display": "string"
+  },
+  "participant": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "string",
+            "code": "string",
+            "display": "string"
+          }
+        ]
+      },
+      "period": {
+        "start": "string",
+        "end": "string"
+      },
+      "actor": {
+        "reference": "string",
+        "display": "string"
+      }
+    }
+  ],
+  "appointment": {
+    "reference": "string"
+  },
+  "actualPeriod": {
+    "start": "string",
+    "end": "string"
+  },
+  "reason": {
+    "use": {
+      "coding": [
+        {
+          "system": "string",
+          "code": "string",
+          "display": "string"
+        }
+      ]
+    },
+    "value": "string"
+  },
+  "diagnosis": [
+    {
+      "condition": {
+        "reference": "string"
+      },
+      "use": {
+        "coding": [
+          {
+            "system": "string",
+            "code": "string",
+            "display": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "account": {
+    "reference": "string"
+  }
+}

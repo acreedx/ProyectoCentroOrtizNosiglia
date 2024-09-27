@@ -1,0 +1,65 @@
+{
+  "resourceType": "string",
+  "type": {
+    "coding": [
+      {
+        "system": "string",
+        "code": "string",
+        "display": "string"
+      }
+    ]
+  },
+  "action": "string",
+  "severity": "string",
+  "occurredDateTime": "string",
+  "outcome": {
+    "code": "string",
+    "description": "string"
+  },
+  "patient": {
+    "reference": "string",
+    "display": "string"
+  },
+  "encounter": {
+    "reference": "string",
+    "display": "string"
+  },
+  "entity": [
+    {
+      "what": {
+        "id": "number",
+        "reference": "string",
+        "display": "string"
+      },
+      "role": "string",
+      "detail": [
+        {
+          "type": "string",
+          "value": "string"
+        }
+      ]
+    }
+  ],
+  "agent": [
+    {
+      "who": {
+        "reference": "string",
+        "display": "string"
+      },
+      "requestor": true,
+      "type": {
+        "coding": [
+          {
+            "system": "string",
+            "code": "string",
+            "display": "string"
+          }
+        ]
+      },
+      "network": {
+        "address": "string",
+        "type": "string"
+      }
+    }
+  ]
+}

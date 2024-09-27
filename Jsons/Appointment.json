@@ -1,0 +1,52 @@
+{
+  "resourceType": "string",
+  "status": "string",
+  "cancellationReason": {
+    "coding": [
+      {
+        "system": "string",
+        "code": "string",
+        "display": "string"
+      }
+    ]
+  },
+  "specialty": {
+    "coding": [
+      {
+        "system": "string",
+        "code": "string",
+        "display": "string"
+      }
+    ]
+  },
+  "reason": [
+    {
+      "coding": [
+        {
+          "system": "string",
+          "code": "string",
+          "display": "string"
+        }
+      ]
+    }
+  ],
+  "description": "string",
+  "previousAppointment": {
+    "reference": "string"
+  },
+  "originatingAppointment": {
+    "reference": "string"
+  },
+  "start": "string",
+  "end": "string",
+  "account": {
+    "reference": "string"
+  },
+  "created": "string",
+  "cancellationDate": "string",
+  "note": ["string"],
+  "patientInstruction": "string",
+  "subject": {
+    "reference": "string"
+  }
+}

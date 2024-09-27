@@ -1,0 +1,30 @@
+{
+  "resourceType": "string",
+  "contact": {
+    "relationship": "string",
+    "name": "string",
+    "telecom": {
+      "system": "string",
+      "value": "string",
+      "use": "string"
+    },
+    "address": {
+      "use": "string",
+      "line": ["string"],
+      "city": "string",
+      "state": "string",
+      "postalCode": "string"
+    },
+    "gender": "string"
+  },
+  "link": {
+    "other": {
+      "reference": "string",
+      "display": "string"
+    }
+  },
+  "organization": {
+    "reference": "string",
+    "display": "string"
+  }
+}
