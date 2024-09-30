@@ -1,5 +1,14 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
+/*
+  Roles:
+  Paciente
+  Dentista
+  Secretario
+  Administrador
+  Enfermero
+  Medico temporal
+*/
 const roleSchema = new Schema(
   {
     roleName: {
@@ -15,6 +24,7 @@ const roleSchema = new Schema(
         required: true,
       },
     ],
+    active: { type: Boolean, required: true },
   },
   {
     timestamps: true,

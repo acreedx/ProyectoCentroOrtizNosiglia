@@ -1,52 +1,11 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const encounterSchema = new Schema({
-  resourceType: { type: String, required: true },
-  status: { type: String, required: true },
-  type: {
-    coding: [
-      {
-        system: { type: String, required: true },
-        code: { type: String, required: true },
-        display: { type: String, required: true },
-      },
-    ],
-  },
-  subject: {
-    reference: { type: String, required: true },
-    display: { type: String },
-  },
-  participant: [
-    {
-      type: {
-        coding: [
-          {
-            system: { type: String, required: true },
-            code: { type: String, required: true },
-            display: { type: String, required: true },
-          },
-        ],
-      },
-      period: {
-        start: { type: String },
-        end: { type: String },
-      },
-      actor: {
-        reference: { type: String, required: true },
-        display: { type: String },
-      },
-    },
-  ],
-  appointment: {
-    reference: { type: String },
-  },
-  actualPeriod: {
-    start: { type: String },
-    end: { type: String },
-  },
-  reason: {
-    use: {
+const encounterSchema = new Schema(
+  {
+    resourceType: { type: String, default: "Encounter" },
+    status: { type: String, required: true },
+    type: {
       coding: [
         {
           system: { type: String, required: true },
@@ -55,13 +14,39 @@ const encounterSchema = new Schema({
         },
       ],
     },
-    value: { type: String },
-  },
-  diagnosis: [
-    {
-      condition: {
-        reference: { type: String, required: true },
+    subject: {
+      reference: { type: String, required: true },
+      display: { type: String },
+    },
+    participant: [
+      {
+        type: {
+          coding: [
+            {
+              system: { type: String, required: true },
+              code: { type: String, required: true },
+              display: { type: String, required: true },
+            },
+          ],
+        },
+        period: {
+          start: { type: String },
+          end: { type: String },
+        },
+        actor: {
+          reference: { type: String, required: true },
+          display: { type: String },
+        },
       },
+    ],
+    appointment: {
+      reference: { type: String },
+    },
+    actualPeriod: {
+      start: { type: String },
+      end: { type: String },
+    },
+    reason: {
       use: {
         coding: [
           {
@@ -71,15 +56,35 @@ const encounterSchema = new Schema({
           },
         ],
       },
+      value: { type: String },
     },
-  ],
-  account: {
-    reference: { type: String },
+    diagnosis: [
+      {
+        condition: {
+          reference: { type: String, required: true },
+        },
+        use: {
+          coding: [
+            {
+              system: { type: String, required: true },
+              code: { type: String, required: true },
+              display: { type: String, required: true },
+            },
+          ],
+        },
+      },
+    ],
+    account: {
+      reference: { type: String },
+    },
   },
-});
+  {
+    timestamps: true,
+  }
+);
 
 const Encounter = mongoose.model("Encounter", encounterSchema);
-module.exports = Encounter;
+export default Encounter;
 
 /*
 id: int; 

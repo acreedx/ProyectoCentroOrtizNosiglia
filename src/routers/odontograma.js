@@ -7,7 +7,6 @@ const timeLog = (req, res, next) => {
 };
 router.use(timeLog);
 router.get("/", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   try {
     const odontogramas = await Odontograma.find();
     res.status(200).json(odontogramas);
@@ -16,7 +15,6 @@ router.get("/", async (req, res) => {
   }
 });
 router.get("/:id", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
   if (!id) {
     return res.status(400).json({ message: "Petición mal formada" });
@@ -35,7 +33,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 router.put("/:id", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
   const { id } = req.params;
   if (!id) {
     return res.status(400).json({ message: "Petición mal formada" });

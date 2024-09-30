@@ -55,7 +55,7 @@ export class PersonRepository {
       alergiaMedicamento,
       estado,
     });
-    const savedPerson = await newPerson.save();
+    const savedPerson = await newPerson.save({ new: true });
     return savedPerson;
   }
 

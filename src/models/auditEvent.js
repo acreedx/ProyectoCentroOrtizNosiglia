@@ -1,74 +1,79 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const auditEventSchema = new Schema({
-  resourceType: { type: String, required: true },
-  type: {
-    coding: [
-      {
-        system: { type: String, required: true },
-        code: { type: String, required: true },
-        display: { type: String, required: true },
-      },
-    ],
-  },
-  action: { type: String, required: true },
-  severity: { type: String, required: true },
-  occurredDateTime: { type: String, required: true },
-  outcome: {
-    code: { type: String, required: true },
-    description: { type: String, required: true },
-  },
-  patient: {
-    reference: { type: String, required: true },
-    display: { type: String },
-  },
-  encounter: {
-    reference: { type: String, required: true },
-    display: { type: String },
-  },
-  entity: [
-    {
-      what: {
-        id: { type: Number, required: true },
-        reference: { type: String, required: true },
-        display: { type: String },
-      },
-      role: { type: String, required: true },
-      detail: [
+const auditEventSchema = new Schema(
+  {
+    resourceType: { type: String, default: "AuditEvent" },
+    type: {
+      coding: [
         {
-          type: { type: String, required: true },
-          value: { type: String, required: true },
+          system: { type: String, required: true },
+          code: { type: String, required: true },
+          display: { type: String, required: true },
         },
       ],
     },
-  ],
-  agent: [
-    {
-      who: {
-        reference: { type: String, required: true },
-        display: { type: String },
-      },
-      requestor: { type: Boolean, required: true },
-      type: {
-        coding: [
+    action: { type: String, required: true },
+    severity: { type: String, required: true },
+    occurredDateTime: { type: String, required: true },
+    outcome: {
+      code: { type: String, required: true },
+      description: { type: String, required: true },
+    },
+    patient: {
+      reference: { type: String, required: true },
+      display: { type: String },
+    },
+    encounter: {
+      reference: { type: String, required: true },
+      display: { type: String },
+    },
+    entity: [
+      {
+        what: {
+          id: { type: Number, required: true },
+          reference: { type: String, required: true },
+          display: { type: String },
+        },
+        role: { type: String, required: true },
+        detail: [
           {
-            system: { type: String, required: true },
-            code: { type: String, required: true },
-            display: { type: String, required: true },
+            type: { type: String, required: true },
+            value: { type: String, required: true },
           },
         ],
       },
-      network: {
-        address: { type: String, required: true },
-        type: { type: String, required: true },
+    ],
+    agent: [
+      {
+        who: {
+          reference: { type: String, required: true },
+          display: { type: String },
+        },
+        requestor: { type: Boolean, required: true },
+        type: {
+          coding: [
+            {
+              system: { type: String, required: true },
+              code: { type: String, required: true },
+              display: { type: String, required: true },
+            },
+          ],
+        },
+        network: {
+          address: { type: String, required: true },
+          type: { type: String, required: true },
+        },
       },
-    },
-  ],
-});
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
 const AuditEvent = mongoose.model("AuditEvent", auditEventSchema);
 
-module.exports = AuditEvent;
+export default AuditEvent;
 
 /*
 id: int;

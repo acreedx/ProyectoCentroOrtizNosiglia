@@ -30,4 +30,9 @@ export class UserRepository {
     if (!isValid) throw new Error("El password es inválido");
     return user;
   }
+  static async hashPassword(password) {
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    return hashedPassword;
+  }
 }

@@ -1,36 +1,41 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const mediaSchema = new Schema({
-  resourceType: { type: String, required: true },
-  status: { type: String, required: true },
-  type: {
-    coding: [
-      {
-        system: { type: String, required: true },
-        code: { type: String, required: true },
-        display: { type: String, required: true },
-      },
-    ],
+const mediaSchema = new Schema(
+  {
+    resourceType: { type: String, default: "Media" },
+    status: { type: String, required: true },
+    type: {
+      coding: [
+        {
+          system: { type: String, required: true },
+          code: { type: String, required: true },
+          display: { type: String, required: true },
+        },
+      ],
+    },
+    subject: {
+      reference: { type: String, required: true },
+      display: { type: String },
+    },
+    context: {
+      reference: { type: String, required: true },
+      display: { type: String },
+    },
+    created: { type: String, required: true },
+    content: {
+      contentType: { type: String, required: true },
+      url: { type: String, required: true },
+    },
   },
-  subject: {
-    reference: { type: String, required: true },
-    display: { type: String },
-  },
-  context: {
-    reference: { type: String, required: true },
-    display: { type: String },
-  },
-  created: { type: String, required: true },
-  content: {
-    contentType: { type: String, required: true },
-    url: { type: String, required: true },
-  },
-});
+  {
+    timestamps: true,
+  }
+);
 
 const Media = mongoose.model("Media", mediaSchema);
 
-module.exports = Media;
+export default Media;
 
 /**
  * id: int;  // Identificador único del Media

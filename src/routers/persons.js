@@ -1,7 +1,7 @@
 import express from "express";
-import Person from "../models/person.js";
 import Odontograma from "../models/odontograma.js";
-import { PersonRepository } from "../repositories/personRepository.js";
+import { PersonsRepository } from "../repositories/personsRepository.js";
+import Persons from "../models/Persons.js";
 const router = express.Router();
 const timeLog = (req, res, next) => {
   next();
@@ -10,83 +10,16 @@ router.use(timeLog);
 
 router.get("/", async (req, res) => {
   try {
-    const personas = await Person.find();
+    const personas = await Persons.find().populate("systemUser.roles");
     res.status(200).json(personas);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
-
-router.put("/:id", async (req, res) => {
-  const { id } = req.params;
-  if (!id) {
-    return res.status(400).json({ message: "Petición mal formada" });
-  }
-  const updatedData = req.body;
-  try {
-    const updatedPerson = await Person.findOneAndUpdate(
-      { _id: id },
-      updatedData,
-      {
-        runValidators: true,
-      }
-    );
-    if (!updatedPerson) {
-      return res.status(404).json({ message: "Paciente no encontrado" });
-    }
-    console.log(updatedPerson);
-    res.status(200).json(updatedPerson);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-router.get("/restorepatient/:id", async (req, res) => {
-  const { id } = req.params;
-  if (!id) {
-    return res.status(400).json({ message: "Petición mal formada" });
-  }
-  try {
-    const updatedPerson = await Person.findOneAndUpdate(
-      { _id: id },
-      { estado: true },
-      { new: true }
-    );
-    if (!updatedPerson) {
-      return res.status(404).json({ message: "Paciente no encontrado" });
-    }
-    console.log(updatedPerson);
-    res.status(200).json(updatedPerson);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
-router.get("/deletepatient/:id", async (req, res) => {
-  const { id } = req.params;
-  if (!id) {
-    return res.status(400).json({ message: "Petición mal formada" });
-  }
-  try {
-    const updatedPerson = await Person.findOneAndUpdate(
-      { _id: id },
-      { estado: false },
-      { new: true }
-    );
-    if (!updatedPerson) {
-      return res.status(404).json({ message: "Paciente no encontrado" });
-    }
-    console.log(updatedPerson);
-    res.status(200).json(updatedPerson);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
-
 router.post("/", async (req, res) => {
   try {
     console.log(req.body);
-    const nuevaPersona = await PersonRepository.create(req.body);
+    const nuevaPersona = await PersonsRepository.create(req.body);
     const odontogramaPersona = new Odontograma({
       patientId: nuevaPersona._id,
       odontogramRows: [
@@ -353,31 +286,5 @@ router.post("/", async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
-});
-
-router.get("/:id", async (req, res) => {
-  const { id } = req.params;
-  if (!id) {
-    return res.status(400).json({ message: "Petición mal formada" });
-  }
-  try {
-    const person = await Person.findOne({ _id: id });
-    if (!person) {
-      return res.status(404).json({ message: "Paciente no encontrada" });
-    }
-    res.status(200).json(person);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-router.options("/:id", async (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Content-Type, Access-Control-Request-Headers"
-  );
-  res.send(200);
 });
 export default router;

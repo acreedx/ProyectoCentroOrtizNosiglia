@@ -1,13 +1,13 @@
 import express from "express";
-import Patient from "../models/patient.js";
+import Composition from "../models/composition.js";
 const router = express.Router();
 router.use((req, res, next) => {
   next();
 });
 router.get("/", async (req, res) => {
   try {
-    const patients = await Patient.find();
-    res.status(200).json(patients);
+    const compositions = await Composition.find();
+    res.status(200).json(compositions);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

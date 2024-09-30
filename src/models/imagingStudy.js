@@ -1,29 +1,20 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 
-const imagingStudySchema = new Schema({
-  resourceType: { type: String, required: true },
-  status: { type: String, required: true },
-  subject: {
-    reference: { type: String, required: true },
-    display: { type: String },
-  },
-  encounter: {
-    reference: { type: String, required: true },
-    display: { type: String },
-  },
-  started: { type: String, required: true },
-  modality: {
-    coding: [
-      {
-        system: { type: String, required: true },
-        code: { type: String, required: true },
-        display: { type: String, required: true },
-      },
-    ],
-  },
-  reason: [
-    {
+const imagingStudySchema = new Schema(
+  {
+    resourceType: { type: String, default: "ImagingStudy" },
+    status: { type: String, required: true },
+    subject: {
+      reference: { type: String, required: true },
+      display: { type: String },
+    },
+    encounter: {
+      reference: { type: String, required: true },
+      display: { type: String },
+    },
+    started: { type: String, required: true },
+    modality: {
       coding: [
         {
           system: { type: String, required: true },
@@ -32,11 +23,8 @@ const imagingStudySchema = new Schema({
         },
       ],
     },
-  ],
-  description: { type: String },
-  series: [
-    {
-      bodySite: {
+    reason: [
+      {
         coding: [
           {
             system: { type: String, required: true },
@@ -45,15 +33,32 @@ const imagingStudySchema = new Schema({
           },
         ],
       },
-      media: [
-        {
-          reference: { type: String, required: true },
-          display: { type: String },
+    ],
+    description: { type: String },
+    series: [
+      {
+        bodySite: {
+          coding: [
+            {
+              system: { type: String, required: true },
+              code: { type: String, required: true },
+              display: { type: String, required: true },
+            },
+          ],
         },
-      ],
-    },
-  ],
-});
+        media: [
+          {
+            reference: { type: String, required: true },
+            display: { type: String },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const ImagingStudy = mongoose.model("ImagingStudy", imagingStudySchema);
 /*
@@ -98,4 +103,4 @@ series: [{
     }];
 }];
 */
-module.exports = ImagingStudy;
+export default ImagingStudy;
