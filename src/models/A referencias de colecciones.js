@@ -1,0 +1,15 @@
+"Account";
+"Appointments";
+"AuditEvent";
+"CarePlan";
+"Composition";
+"Encounter";
+"ImagingStudy";
+"Media";
+"Odontograma";
+"Patient";
+"Permission";
+"Persons";
+"Practitioner";
+"Rol";
+"User";

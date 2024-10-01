@@ -7,62 +7,100 @@ const auditEventSchema = new Schema(
     type: {
       coding: [
         {
-          system: { type: String, required: true },
-          code: { type: String, required: true },
+          system: {
+            type: String,
+            default: "http://terminology.hl7.org/CodeSystem/audit-event-type",
+          },
+          code: {
+            type: String,
+            required: true,
+            enum: [
+              "creation", // Creación de un recurso
+              "access", // Acceso a un recurso
+              "modification", // Modificación de un recurso
+              "deletion", // Eliminación de un recurso
+              "execution", // Ejecución de una operación
+            ],
+          },
           display: { type: String, required: true },
         },
       ],
     },
-    action: { type: String, required: true },
-    severity: { type: String, required: true },
+    action: {
+      type: String,
+      required: true,
+      enum: ["create", "update", "delete", "execute"],
+    },
+    severity: { type: String, enum: ["low", "medium", "high"], required: true },
     occurredDateTime: { type: String, required: true },
     outcome: {
-      code: { type: String, required: true },
-      description: { type: String, required: true },
-    },
-    patient: {
-      reference: { type: String, required: true },
-      display: { type: String },
-    },
-    encounter: {
-      reference: { type: String, required: true },
-      display: { type: String },
-    },
-    entity: [
-      {
-        what: {
-          id: { type: Number, required: true },
-          reference: { type: String, required: true },
-          display: { type: String },
-        },
-        role: { type: String, required: true },
-        detail: [
-          {
-            type: { type: String, required: true },
-            value: { type: String, required: true },
-          },
+      code: {
+        type: String,
+        required: true,
+        enum: ["0", "4", "8", "12"], // Éxito, fallo menor, fallo grave, fallo mayor
+      },
+      description: {
+        type: String,
+        required: true,
+        enum: [
+          "Success", // La operación fue exitosa
+          "Minor failure", // Fallo menor, se puede continuar
+          "Serious failure", // Fallo serio, se requiere atención
+          "Major failure", // Fallo mayor, operación no completada
         ],
       },
-    ],
+    },
+    patient: {
+      reference: {
+        type: Schema.Types.ObjectId,
+        ref: "Patient",
+      },
+      display: { type: String },
+    },
     agent: [
       {
         who: {
-          reference: { type: String, required: true },
+          reference: { type: String, ref: "Persons" },
           display: { type: String },
         },
         requestor: { type: Boolean, required: true },
         type: {
           coding: [
             {
-              system: { type: String, required: true },
-              code: { type: String, required: true },
-              display: { type: String, required: true },
+              system: {
+                type: String,
+                default: "http://hl7.org/fhir/ValueSet/practitioner-role",
+              },
+              code: {
+                type: String,
+                required: true,
+                enum: [
+                  "paciente", // Código para Paciente
+                  "dentista", // Código para Dentista
+                  "secretario", // Código para Secretario
+                  "administrador", // Código para Administrador
+                  "enfermero", // Código para Enfermero
+                  "medico_temporal", // Código para Médico Temporal
+                ],
+              },
+              display: {
+                type: String,
+                required: true,
+                enum: [
+                  "Paciente", // Display para Paciente
+                  "Dentista", // Display para Dentista
+                  "Secretario", // Display para Secretario
+                  "Administrador", // Display para Administrador
+                  "Enfermero", // Display para Enfermero
+                  "Médico Temporal", // Display para Médico Temporal
+                ],
+              },
             },
           ],
         },
         network: {
           address: { type: String, required: true },
-          type: { type: String, required: true },
+          type: { type: String, default: "Network Adress" },
         },
       },
     ],
