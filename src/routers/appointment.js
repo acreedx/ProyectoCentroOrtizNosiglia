@@ -1,14 +1,9 @@
 import express from "express";
 import Appointment from "../models/appointment.js";
-import pkg from "twilio";
 import cron from "node-cron";
+import sendWhatsAppMessage from "../messages/SendWhatsappMessage.js";
 
 const router = express.Router();
-const { Twilio } = pkg;
-const accountSid = "ACf8cfcff85381dbfa10745d54e429f3d4";
-const authToken = "ea1272ff1c4d650b683ffc743704e8e2";
-
-const client = new Twilio(accountSid, authToken);
 const isTwoDaysBefore = (date) => {
   const now = new Date();
   const twoDaysFromNow = new Date(now.setDate(now.getDate() + 2));
@@ -21,28 +16,28 @@ cron.schedule("0 8 * * *", async () => {
     citas.forEach(async (cita) => {
       const participante = cita.participant[0];
       if (participante) {
-        // Enviar el recordatorio por WhatsApp
         const formateador = new Intl.DateTimeFormat("es-ES", {
           dateStyle: "full",
           timeStyle: "short",
-          timeZone: "UTC", // Asegúrate de usar la zona horaria correcta
-        });
-        const message = await client.messages.create({
-          from: "whatsapp:+14155238886", // Número habilitado por Twilio
-          to: `whatsapp:+59173744202`, // Número del paciente
-          body: `Recordatorio: Hola ${
-            participante.actor.display
-          }, tienes una cita programada para el ${formateador.format(
-            cita.start
-          )}.
-          El pago de la cita es de 100bs. 
-          Puedes confirmar tu cita en http://localhost:3000/paginaweb/pages/citas.`,
+          timeZone: "UTC",
         });
         console.log(cita.start);
         console.log(
           `Recordatorio enviado para la cita ${cita._id}: `,
           message.sid
         );
+        const messageParams = {
+          nombre: participante.actor.display,
+          mensaje: `Recordatorio: Hola ${
+            participante.actor.display
+          }, tienes una cita programada para el ${formateador.format(
+            cita.start
+          )}.
+          El pago de la cita es de 100bs. 
+          Puedes confirmar tu cita en http://localhost:3000/paginaweb/pages/citas.`,
+          destino: "+59173744202",
+        };
+        await sendWhatsAppMessage(messageParams);
       }
     });
   } catch (error) {

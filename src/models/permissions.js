@@ -1,21 +1,20 @@
 import mongoose from "mongoose";
 const { Schema } = mongoose;
 /*
-  Permisos:
-  Crear usuarios
-  Editar usuarios
-  Deshabilitar usuarios
-  Crear roles
-  Editar roles
-  Asignar roles
-  Deshabilitar roles
-  Crear permisos
-  Editar permisos
-  Deshabilitar permisos
-  Editar odontogramas de pacientes
-  Crear citas
-  Editar citas
-  Deshabilitar citas
+  ObjectId('66fa272521218bdf69e62501'),   
+  new ObjectId('66fa272521218bdf69e62502'),
+  new ObjectId('66fa272521218bdf69e62504'),
+  new ObjectId('66fa272521218bdf69e62505'),
+  new ObjectId('66fa272521218bdf69e62509'),
+  new ObjectId('66fa272521218bdf69e624ff'),
+  new ObjectId('66fa272521218bdf69e62506'),
+  new ObjectId('66fa272521218bdf69e6250a'),
+  new ObjectId('66fa272521218bdf69e6250b'),
+  new ObjectId('66fa272521218bdf69e6250c'),
+  new ObjectId('66fa272521218bdf69e62508'),
+  new ObjectId('66fa272521218bdf69e62507'),
+  new ObjectId('66fa272521218bdf69e62503'),
+  new ObjectId('66fa272521218bdf69e62500')
 */
 const permissionSchema = new Schema(
   {

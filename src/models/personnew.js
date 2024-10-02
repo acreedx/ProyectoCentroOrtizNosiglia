@@ -1,9 +1,23 @@
-import mongoose from "mongoose";
-const { Schema } = mongoose;
 const PersonsSchema = new Schema(
   {
-    resourceType: { type: String, default: "Patient" },
-    active: { type: Boolean, required: true },
+    primerNombre,
+    segundoNombre,
+    apellido,
+    genero,
+    fechaNacimiento,
+    telefono,
+    celular,
+    email,
+    foto,
+    direccion,
+    ciudad,
+    estado,
+    codigopostal,
+    estadoCivil,
+    Ci,
+    nombreUsuario,
+    password,
+
     name: {
       given: [{ type: String, required: true }],
       family: { type: String, required: true },
@@ -27,14 +41,17 @@ const PersonsSchema = new Schema(
       },
     },
     address: {
-      line: [{ type: String }],
+      line: [{ type: String, required: true }],
       city: { type: String, required: true },
+      state: { type: String },
+      postalCode: { type: String },
     },
     maritalStatus: {
       coding: [
         {
-          code: { type: String, enum: ["M", "S"], required: true },
-          display: { type: String, required: true },
+          system: { type: String },
+          code: { type: String },
+          display: { type: String },
         },
       ],
     },
@@ -45,7 +62,7 @@ const PersonsSchema = new Schema(
       roles: [{ type: Schema.Types.ObjectId, ref: "Rol", required: true }],
       lastLogin: { type: String },
       passwordExpiration: { type: String },
-      status: { type: Boolean, default: true },
+      status: { type: String },
     },
     allergies: [
       {
@@ -64,7 +81,3 @@ const PersonsSchema = new Schema(
     timestamps: true,
   }
 );
-
-const Persons = mongoose.model("Persons", PersonsSchema);
-
-export default Persons;
