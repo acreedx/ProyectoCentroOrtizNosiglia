@@ -2,7 +2,6 @@ import express from "express";
 import Appointment from "../models/appointment.js";
 import cron from "node-cron";
 import sendWhatsAppMessage from "../messages/SendWhatsappMessage.js";
-
 const router = express.Router();
 const isTwoDaysBefore = (date) => {
   const now = new Date();
@@ -21,11 +20,6 @@ cron.schedule("0 8 * * *", async () => {
           timeStyle: "short",
           timeZone: "UTC",
         });
-        console.log(cita.start);
-        console.log(
-          `Recordatorio enviado para la cita ${cita._id}: `,
-          message.sid
-        );
         const messageParams = {
           nombre: participante.actor.display,
           mensaje: `Recordatorio: Hola ${

@@ -16,6 +16,48 @@ router.get("/", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+router.get("/newpersons", async (req, res) => {
+  try {
+    const personas = await Persons.find()
+      .sort({ _id: -1 }) // Ordenar en orden descendente por el campo _id (lo más reciente primero)
+      .limit(10); // Limitar a los últimos 10 registros
+    res.status(200).json(personas);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+router.put("/habilitar/:id", async (req, res) => {
+  const { id } = req.params;
+  if (!id) {
+    return res.status(400).json({ message: "Petición mal formada" });
+  }
+  try {
+    const person = await Persons.findOneAndUpdate(
+      { _id: id },
+      { active: true },
+      { new: true }
+    );
+    res.status(200).json(person);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+router.put("/deshabilitar/:id", async (req, res) => {
+  const { id } = req.params;
+  if (!id) {
+    return res.status(400).json({ message: "Petición mal formada" });
+  }
+  try {
+    const person = await Persons.findOneAndUpdate(
+      { _id: id },
+      { active: false },
+      { new: true }
+    );
+    res.status(200).json(person);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 router.post("/", async (req, res) => {
   try {
     console.log(req.body);

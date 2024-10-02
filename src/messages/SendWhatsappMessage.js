@@ -2,12 +2,13 @@
 import pkg from "twilio";
 const { Twilio } = pkg;
 const accountSid = "ACf8cfcff85381dbfa10745d54e429f3d4";
-const authToken = "ea1272ff1c4d650b683ffc743704e8e2";
+const authToken = "7f3916f7d0c4a95988e01ba904843074";
 
 const client = new Twilio(accountSid, authToken);
 
 async function sendWhatsAppMessage({ nombre, mensaje, destino }) {
   // Usar el mensaje dinámico en lugar de uno fijo
+  console.log(nombre, mensaje, destino);
   const bodyMessage = mensaje.replace("{nombre}", nombre);
 
   const message = await client.messages.create({
